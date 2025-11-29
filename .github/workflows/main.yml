@@ -104,6 +104,9 @@ jobs:
         name: sha256-${{ matrix.label }}
         path: esp-miner-factory-${{ matrix.label }}-${{ env.VERSION_TAG }}.sha256
 
+    - name: Fix permissions
+      run: sudo chown -R $USER:$USER build
+
     - name: Rename Build Artifacts
       run: |
         mv build/esp-miner.bin build/esp-miner-${{ matrix.label }}.bin
